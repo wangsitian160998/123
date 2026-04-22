@@ -166,7 +166,7 @@
     .stats {
       margin-top: 16px;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
 
@@ -447,10 +447,6 @@
       <article class="stat risk">
         <span>高优先级</span>
         <strong id="countHigh">0</strong>
-      </article>
-      <article class="stat warn">
-        <span>政策/监管类</span>
-        <strong id="countPolicy">0</strong>
       </article>
       <article class="stat">
         <span>最新日期</span>
@@ -1582,7 +1578,6 @@
     function renderStats(items) {
       document.getElementById("countAll").textContent = String(items.length);
       document.getElementById("countHigh").textContent = String(items.filter((item) => item.priority === "high").length);
-      document.getElementById("countPolicy").textContent = String(items.filter((item) => item.category === "政策").length);
       document.getElementById("latestDate").textContent = items.length ? formatDate(items[0].date) : "--";
     }
 
