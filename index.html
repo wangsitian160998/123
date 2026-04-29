@@ -862,8 +862,46 @@
       }
     }
 
-    const favoriteIds = new Set(readStoredIds(storageKeys.favorites));
-    const deletedIds = new Set(readStoredIds(storageKeys.deleted));
+    function parseHashIds(name) {
+      try {
+        const hash = window.location.hash.startsWith("#") ? window.location.hash.slice(1) : "";
+        const params = new URLSearchParams(hash);
+        const raw = params.get(name);
+        if (!raw) return [];
+        return raw
+          .split(",")
+          .map((value) => Number(value))
+          .filter((value) => Number.isFinite(value));
+      } catch (error) {
+        return [];
+      }
+    }
+
+    function syncStateToHash() {
+      try {
+        const params = new URLSearchParams();
+        if (favoriteIds.size) {
+          params.set("fav", [...favoriteIds].join(","));
+        }
+        if (deletedIds.size) {
+          params.set("del", [...deletedIds].join(","));
+        }
+        const nextHash = params.toString();
+        const nextUrl = `${window.location.pathname}${window.location.search}${nextHash ? `#${nextHash}` : ""}`;
+        window.history.replaceState(null, "", nextUrl);
+      } catch (error) {
+        console.warn("无法同步状态到地址栏", error);
+      }
+    }
+
+    const favoriteIds = new Set([
+      ...readStoredIds(storageKeys.favorites),
+      ...parseHashIds("fav")
+    ]);
+    const deletedIds = new Set([
+      ...readStoredIds(storageKeys.deleted),
+      ...parseHashIds("del")
+    ]);
 
     const itemList = document.getElementById("itemList");
     const detailPanel = document.getElementById("detailPanel");
@@ -1140,6 +1178,7 @@
           favoriteIds.add(id);
         }
         saveStoredIds(storageKeys.favorites, favoriteIds);
+        syncStateToHash();
         refresh();
         return;
       }
@@ -1173,6 +1212,7 @@
         favoriteIds.delete(id);
         saveStoredIds(storageKeys.deleted, deletedIds);
         saveStoredIds(storageKeys.favorites, favoriteIds);
+        syncStateToHash();
 
         if (currentDetailId === id) {
           const visibleItems = getFilteredItems();
@@ -1211,9 +1251,11 @@
       if (!favoriteIds.has(id)) return;
       favoriteIds.delete(id);
       saveStoredIds(storageKeys.favorites, favoriteIds);
+      syncStateToHash();
       refresh();
     });
 
+    syncStateToHash();
     modalClose.addEventListener("click", closeDetailModal);
 
     detailModal.addEventListener("click", (event) => {
