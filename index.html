@@ -660,158 +660,7 @@
   </div>
 
   <script>
-    const weeklyItems = [
-      {
-        id: 1,
-        title: "利雅得教育部门在 13 个省份启用线上授课，并明确只能通过 Madrasati 与获批平台实施",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["Madrasati", "获批平台", "教育应急", "平台准入"],
-        summary: "Saudi Press Agency 于 2026 年 4 月 21 日报道，利雅得地区教育管理部门宣布 13 个省份当日线下课转线上，且明确通过 Madrasati 平台及其他获批教育平台开展，覆盖学生、教师和行政人员。",
-        whyItMatters: "这不是单次停课通知，而是官方再次确认线上教学已有指定平台口径和合规边界。对外来平台而言，‘是否获批、是否被纳入既有体系’比单纯功能更关键。",
-        nextAction: "后续持续跟踪 Saudi MOE / Riyadh Education 对“approved educational platforms”“Madrasati”表述的延伸，观察平台准入是否会进一步细化为白名单或接入要求。",
-        date: "2026-04-21",
-        platform: "政府通稿",
-        source: "SPA",
-        links: ["https://www.spa.gov.sa/en/N2566507"]
-      },
-      {
-        id: 2,
-        title: "教育部与 ETEC 推出教育状态室分部门窗口，教育治理进一步走向数据驱动",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["MOE", "ETEC", "dashboard", "数据治理"],
-        summary: "MOE 于 2026 年 4 月 9 日披露，Education and Training Status Room 已向各教育部门开放专属窗口，使各部门能够直接访问和分析绩效数据、识别差距并制定干预计划。",
-        whyItMatters: "这说明沙特教育治理正进一步从项目驱动走向数据驱动。对在线教育公司而言，未来对话很可能围绕可量化成效、绩效追踪和数据接入展开，而不只是课程数量。",
-        nextAction: "重点监测 MOE、ETEC 后续是否发布更细的 performance data、improvement plan、evaluation 指标口径，判断这类数据平台是否会外溢到供应商考核或合作门槛。",
-        date: "2026-04-09",
-        platform: "政府官网",
-        source: "Ministry of Education",
-        links: ["https://www.moe.gov.sa/en/mediacenter/MOEnews/Pages/The-Education-and-Training-Evaluation.aspx"]
-      },
-      {
-        id: 3,
-        title: "SDAIA 就 Responsible AI 政策草案征求意见，AI 使用正在进入更明确的监管框架",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["SDAIA", "Responsible AI", "征求意见", "AI治理"],
-        summary: "SPA 于 2026 年 4 月 2 日报道，SDAIA 向公众及政府、私营和非营利机构征求 Responsible AI Policy Draft 意见，强调要在创新与负责使用之间取得平衡，并通过持续风险评估和清晰责任划分来强化合规。",
-        whyItMatters: "这对教育科技公司尤其关键。未来 AI 教学助手、自动批改、学习分析等能力，不只是技术问题，也会被放进政府统一的 AI 治理框架里看待。",
-        nextAction: "把 Responsible AI、risk assessment、roles and responsibilities、trust in AI 等词加入常驻监测词库，后续一旦草案转正式文件，需要第一时间复核产品功能与数据处理方式。",
-        date: "2026-04-02",
-        platform: "政府通稿",
-        source: "SPA",
-        links: ["https://www.spa.gov.sa/en/N2551533"]
-      },
-      {
-        id: 4,
-        title: "SDAIA 专门提醒用户先验证网站与平台可靠性，再提交个人数据、证件与生物识别信息",
-        category: "行业",
-        priority: "high",
-        featured: true,
-        tags: ["数据保护", "平台可信", "biometrics", "用户信任"],
-        summary: "SPA 于 2026 年 4 月 5 日报道称，SDAIA 公开提醒公众在使用电子平台或网站服务前，应先确认其可靠性，再提交个人数据、证件与生物识别信息，以防止欺诈、身份盗用及数据被非法使用。",
-        whyItMatters: "这条虽然不是教育专门政策，但对所有在线教育出海平台都非常直接：如果平台要求上传证件、头像、语音、面部或其他敏感数据，用户信任与平台合规会变成监管和转化的共同问题。",
-        nextAction: "后续建议把“是否需要收集敏感数据、是否能证明平台官方身份、是否有阿语隐私说明”作为沙特版本产品审查的固定栏目。",
-        date: "2026-04-05",
-        platform: "政府通稿",
-        source: "SPA",
-        links: ["https://www.spa.gov.sa/en/N2553160"]
-      },
-      {
-        id: 5,
-        title: "DGA 启动 2026 Digital Transformation Index，并新增 Website and Digital Content Efficiency 子指标",
-        category: "行业",
-        priority: "high",
-        featured: true,
-        tags: ["DGA", "Digital Transformation Index", "网站内容效率", "数字政府"],
-        summary: "SPA 于 2026 年 4 月 15 日报道，Digital Government Authority 启动 Digital Transformation Index 2026，并引入 Website and Digital Content Efficiency Index 作为子指标，用于提升政府网站与数字内容质量管理。",
-        whyItMatters: "这条是很有用的大宏观信号。它说明沙特对数字内容、网站体验、信息质量的要求正在变成可衡量指标。对出海平台来说，网站与内容质量不只是市场问题，也越来越像合规与可信度问题。",
-        nextAction: "建议持续关注 DGA 对 Website and Digital Content Efficiency 的评估口径，后续可反向映射到我们自己的阿语官网、落地页、帮助中心与内容治理。",
-        date: "2026-04-15",
-        platform: "政府通稿",
-        source: "SPA",
-        links: ["https://www.spa.gov.sa/en/N2562888"]
-      },
-      {
-        id: 6,
-        title: "NeLC 与 TVTC 统一私营部门 eLearning / training program 许可流程，FutureX 接入成为前置条件",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["NeLC", "TVTC", "FutureX", "licensing"],
-        summary: "NeLC 于 2026 年 3 月 25 日宣布，与 TVTC 协调统一私营部门 eLearning 和 training program 许可流程。培训提供方将直接向 TVTC 申请项目许可，但前提是完成与 NeLC 系统通过 FutureX 的技术接入；新框架自 2026 年 5 月起生效。",
-        whyItMatters: "这说明沙特的在线教育/培训监管不再只是拿一张牌照，而是“牌照 + 技术接入 + 持续监管”一起看。对出海公司来说，技术接入能力会前置成准入条件。",
-        nextAction: "对任何潜在沙特合作或本地化落地项目，都建议先评估是否涉及 TVTC 许可、是否需要 FutureX 接入、以及产品形态更偏 education 还是 training。",
-        date: "2026-03-25",
-        platform: "政府官网",
-        source: "National eLearning Center",
-        links: ["https://nelc.gov.sa/en/media-center/news/unified-e-learning-licensing-private-sector-en"]
-      },
-      {
-        id: 7,
-        title: "NeLC 要求机构在 3 月 31 日前完成 FutureX 技术接入，未完成可导致牌照暂停或撤销",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["FutureX", "technical integration", "suspension", "license risk"],
-        summary: "NeLC 于 2026 年 2 月 18 日要求 Kingdom 内所有 eLearning 与 training providers 在 30 个工作日内完成与 FutureX 的技术接入，并明确指出未完成可能导致项目许可被暂停或撤销。",
-        whyItMatters: "这条把‘接入要求’从运营层面抬升为监管风险。对平台型公司而言，系统接口、数据格式和接入配合度，已经会直接影响是否能持续经营。",
-        nextAction: "后续如进入沙特市场，应把 FutureX / 本地平台接入准备放入前置清单，而不是等到商务合同签完后再补技术。",
-        date: "2026-02-18",
-        platform: "政府官网",
-        source: "National eLearning Center",
-        links: ["https://nelc.gov.sa/en/media-center/news/news-future-link"]
-      },
-      {
-        id: 8,
-        title: "SDAIA 启动面向全体本科生的数据与 AI 通识课程，AI 素养正在变成跨学科底座",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["SDAIA", "AI curriculum", "university", "cross-disciplinary"],
-        summary: "SPA 于 2026 年 1 月 30 日报道，SDAIA 推出 National Cross-Disciplinary Curriculum for University Students in Data and AI，面向所有学科本科生，帮助大学开发面向全体学生的数据与 AI 必修课程。",
-        whyItMatters: "这说明沙特对 AI 教育的期待已经从‘专业课程’上升为‘跨学科基础能力’。在线教育公司若要切入高校、培训或能力建设市场，产品叙事最好对齐 AI literacy、responsible use 和 labor market readiness。",
-        nextAction: "关注后续大学落地、必修课程实施、采购合作和内容标准化的进一步消息，判断是否会形成面向外部机构的合作机会。",
-        date: "2026-01-30",
-        platform: "政府通稿",
-        source: "SPA",
-        links: ["https://www.spa.gov.sa/en/N2501273"]
-      },
-      {
-        id: 9,
-        title: "GAFT 对来自中国等地的环氧树脂启动反倾销调查，贸易救济已进入持续动作阶段",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["GAFT", "China", "anti-dumping", "trade remedies"],
-        summary: "GAFT 于 2026 年 1 月 22 日宣布，对原产于或出口自中国、韩国、印度和中国台湾地区的环氧树脂发起反倾销调查。官方明确这是依据 2022 年发布的国际贸易救济法进行。",
-        whyItMatters: "虽然不是教育行业，但这是一个非常明确的政府视角案例：面向中国来源商品的监管与贸易救济在沙特是持续进行的，不是偶发事件。对于中国公司出海，合规与贸易环境都需要被纳入背景判断。",
-        nextAction: "建议把 GAFT 的 trade remedies 作为长期源池保留，凡涉及中国来源商品、技术设备或关键投入品，都要关注是否存在调查、最终措施或延续审查。",
-        date: "2026-01-22",
-        platform: "政府官网",
-        source: "GAFT",
-        links: ["https://gaft.gov.sa/en/lists/news/the-general-authority-of-foreign-trade-announces-the-initiation-of-an-anti-dumping-investigation-concerning-the-kingdom-s-imports-of-epoxy-resins-from-the-people-s-republic-of-china-republic-of-korea-republic-of-india-and-taiwan/"]
-      },
-      {
-        id: 10,
-        title: "GAFT 已对中国与中国台湾不锈钢焊管征收 5 年期最终反倾销税，税率最高达 27.3%",
-        category: "政策",
-        priority: "high",
-        featured: true,
-        tags: ["GAFT", "China", "final duties", "customs"],
-        summary: "GAFT 于 2025 年 6 月 29 日宣布，对原产于或出口自中国和中国台湾地区的不锈钢焊管征收最终反倾销税，2025 年 6 月 30 日起执行 5 年，税率区间为 6.5% 至 27.3%。",
-        whyItMatters: "这是一条已经落地执行的中国相关监管样本。虽然不是教育产品本身，但它说明中国主体进入沙特市场时，必须把贸易救济、海关征收与本地产业保护放进整体风险图谱。",
-        nextAction: "建议后续把‘中国—沙特—监管/反倾销/海关’作为独立专题维护，和教育政策线并行，便于管理层同时看行业机会与中国主体风险环境。",
-        date: "2025-06-29",
-        platform: "政府官网",
-        source: "GAFT",
-        links: ["https://gaft.gov.sa/en/lists/news/gaft-announces-final-anti-dumping-duties-on-imports-of-welded-stainless-steel-pipes-from-the-people-s-republic-of-china-and-taiwan-29-june-2025/"]
-      }
-    ];
+    const weeklyItems = [];
 
     const categoryClassMap = {
       "政策": "policy",
@@ -894,14 +743,17 @@
       }
     }
 
+    const validItemIds = new Set(weeklyItems.map((item) => item.id));
     const favoriteIds = new Set([
       ...readStoredIds(storageKeys.favorites),
       ...parseHashIds("fav")
-    ]);
+    ].filter((id) => validItemIds.has(id)));
     const deletedIds = new Set([
       ...readStoredIds(storageKeys.deleted),
       ...parseHashIds("del")
-    ]);
+    ].filter((id) => validItemIds.has(id)));
+    saveStoredIds(storageKeys.favorites, favoriteIds);
+    saveStoredIds(storageKeys.deleted, deletedIds);
 
     const itemList = document.getElementById("itemList");
     const detailPanel = document.getElementById("detailPanel");
@@ -985,7 +837,7 @@
 
     function renderList(items) {
       if (!items.length) {
-        itemList.innerHTML = '<div class="empty">当前筛选条件下没有内容，换一个时间范围或取消“仅看重点”试试。</div>';
+        itemList.innerHTML = '<div class="empty">当前没有条目。</div>';
         return;
       }
 
